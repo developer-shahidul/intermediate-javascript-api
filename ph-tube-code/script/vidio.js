@@ -31,7 +31,7 @@ const convertView = (viewStr) => {
 };
 
 // 🔥 videos global এ রাখো
-
+let videos = [];
 const handleSort = () => {
   videos.sort(
     (a, b) => convertView(b.others.views) - convertView(a.others.views)
@@ -111,7 +111,7 @@ const displayDatils = (video) => {
 
   document.getElementById("custonModal").showModal();
 };
-//load videos
+//load videos search videos
 const loadVideos = (searchText = "") => {
   fetch(
     `https://openapi.programming-hero.com/api/phero-tube/videos?title=${searchText}`
@@ -190,11 +190,11 @@ const displayVideos = (videos) => {
    
   </figure>
   <div class="mt-5 px-0 py-2 flex gap-2">
- <div>
- <img class="size-10 rounded-full object-cover" src="${
-   videos.authors[0].profile_picture
- }" alt=""/>
- </div>
+  <div>
+  <img class="size-10 rounded-full object-cover" src="${
+    videos.authors[0].profile_picture
+  }" alt=""/>
+  </div>
   <div>
 <h2 class="font-bold"> ${videos.title}</h2>
 
